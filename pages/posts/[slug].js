@@ -1,4 +1,3 @@
-import { urlFor } from '..'
 import client from '../../client'
 import styles from '../../styles/SinglePost.module.css'
 import { getNorwegianDateString } from '../../utils/utils'

@@ -3,7 +3,7 @@ import styles from '../styles/Nav.module.css'
 
 const Nav = () => {
     return (
-        <nav className={styles.navbar}>
+        <div className={styles.navbar}>
             <ul>
                 <Link href="/">
                     <a>
@@ -11,7 +11,7 @@ const Nav = () => {
                     </a>
                 </Link>
             </ul>
-        </nav>
+        </div>
     )
 }
 
