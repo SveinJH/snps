@@ -1,0 +1,13 @@
+.navbar {
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-family: 'Birthstone';
+    font-size: 8rem;
+}

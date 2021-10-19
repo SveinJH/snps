@@ -1,0 +1,17 @@
+.posts {
+    color: #222;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 6rem 4rem;
+    justify-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .posts {
+        grid-template-columns: 1fr;
+    }
+}
+
+.posts > div {
+    width: 100%;
+}
