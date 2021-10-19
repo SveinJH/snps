@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import client from '../../client'
 import styles from '../../styles/SinglePost.module.css'
 import { getNorwegianDateString } from '../../utils/utils'
@@ -27,38 +28,41 @@ export const getStaticProps = async ({ params }) => {
 }
 
 const PostPage = ({ post }) => {
-    console.log(post)
-
     if (!post) {
         return <div>Loading...</div>
     }
 
-    const { _createdAt, image, slug, tags, title, video, videoLength } = post
+    const { _createdAt, tags, title, video } = post
 
     return (
-        <article className={styles.post}>
-            <div>
-                {video?.url && (
-                    <video controls>
-                        <source src={video.url} />
-                        Nettleseren din støtter ikke denne videoen.
-                    </video>
-                )}
-            </div>
-            <div className={styles.content}>
-                <div className={styles.date}>
-                    {getNorwegianDateString(_createdAt)}
+        <>
+            <Head>
+                <title>SNPS | {title}</title>
+            </Head>
+            <article className={styles.post}>
+                <div>
+                    {video?.url && (
+                        <video controls>
+                            <source src={video.url} />
+                            Nettleseren din støtter ikke denne videoen.
+                        </video>
+                    )}
                 </div>
-                <h3>{title}</h3>
-                <div className={styles.tags}>
-                    {tags.map(tag => (
-                        <span key={tag} className="tag">
-                            {tag}
-                        </span>
-                    ))}
+                <div className={styles.content}>
+                    <div className={styles.date}>
+                        {getNorwegianDateString(_createdAt)}
+                    </div>
+                    <h3>{title}</h3>
+                    <div className={styles.tags}>
+                        {tags.map(tag => (
+                            <span key={tag} className="tag">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </article>
+            </article>
+        </>
     )
 }
 
