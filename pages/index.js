@@ -8,7 +8,9 @@ const builder = imageUrlBuilder(client)
 export const urlFor = source => builder.image(source)
 
 export const getStaticProps = async () => {
-    const posts = await client.fetch('*[_type == "post"]')
+    const posts = await client.fetch(
+        '*[_type == "post"] | order(_createdAt desc)',
+    )
 
     return {
         props: { posts },
